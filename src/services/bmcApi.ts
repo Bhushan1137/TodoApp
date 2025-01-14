@@ -8,8 +8,8 @@ interface BMCResponse {
  * @returns Number of buy me a coffee supporters.
  */
 export const fetchBMCInfo = async (): Promise<BMCResponse> => {
-  const username = "maciekt07";
-  const url = `https://img.buymeacoffee.com/button-api/?&slug=${username}`;
+  // const username = "Bhushan1137";
+  const url = `https://img.buymeacoffee.com/button-api/?&slug=${""}`;
   try {
     // Fetch data from the provided URL
     const response = await fetch(url);
@@ -28,7 +28,7 @@ export const fetchBMCInfo = async (): Promise<BMCResponse> => {
   } catch (error) {
     console.error("Error fetching Buy Me a Coffee API:", error);
     if (navigator.onLine) {
-      showToast("Failed to fetch Buy Me a Coffee API.", { type: "error", disableVibrate: true });
+      // showToast("Failed to fetch Buy Me a Coffee API.", { type: "error", disableVibrate: true });
     }
     return { supportersCount: 0 };
   }

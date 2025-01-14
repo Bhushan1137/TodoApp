@@ -1,17 +1,17 @@
 {
   "name": "todoapp",
   "author": {
-    "name": "Maciej Twaróg",
-    "url": "https://github.com/maciekt07"
+    "name": "Bhushan Mahajan",
+    "url": "https://github.com/Bhushan1137"
   },
   "private": true,
   "type": "module",
   "homepage": "https://react-cool-todo-app.netlify.app/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/maciekt07/TodoApp.git"
+    "url": "git+https://github.com/Bhushan1137/TodoApp.git"
   },
-  "license": "MIT",
+  
   "scripts": {
     "dev": "vite",
     "dev:host": "vite --host",

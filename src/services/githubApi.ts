@@ -34,7 +34,7 @@ export const fetchGitHubInfo = async (): Promise<GitHubInfoResponse> => {
           disableVibrate: true,
         });
       } else {
-        throw new Error("Failed to fetch repository or branch information");
+        // throw new Error("Failed to fetch repository or branch information");
       }
     }
   } catch (error) {

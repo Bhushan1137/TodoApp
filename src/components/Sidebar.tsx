@@ -2,23 +2,18 @@ import { keyframes, useTheme } from "@emotion/react";
 import styled from "@emotion/styled";
 import {
   AddRounded,
-  AdjustRounded,
-  BugReportRounded,
   CategoryRounded,
   DeleteForeverRounded,
   DownloadDoneRounded,
   Favorite,
-  FavoriteRounded,
   FiberManualRecord,
   GetAppRounded,
-  GitHub,
   InstallDesktopRounded,
   InstallMobileRounded,
   IosShareRounded,
   Logout,
   PhoneIphoneRounded,
   SettingsRounded,
-  StarRounded,
   TaskAltRounded,
   ThumbUpRounded,
 } from "@mui/icons-material";
@@ -35,8 +30,6 @@ import {
 import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { CustomDialogTitle, LogoutDialog, SettingsDialog } from ".";
-import bmcLogoLight from "../assets/bmc-logo-light.svg";
-import bmcLogo from "../assets/bmc-logo.svg";
 import logo from "../assets/logo256.png";
 import { defaultUser } from "../constants/defaultUser";
 import { UserContext } from "../contexts/UserContext";
@@ -44,7 +37,7 @@ import { fetchBMCInfo } from "../services/bmcApi";
 import { fetchGitHubInfo } from "../services/githubApi";
 import { DialogBtn, UserAvatar, pulseAnimation, ring } from "../styles";
 import { ColorPalette } from "../theme/themeConfig";
-import { showToast, systemInfo, timeAgo } from "../utils";
+import { showToast, systemInfo } from "../utils";
 
 export const ProfileSidebar = () => {
   const { user, setUser } = useContext(UserContext);
@@ -260,56 +253,6 @@ export const ProfileSidebar = () => {
 
         <StyledDivider />
 
-        <MenuLink to="https://github.com/maciekt07/TodoApp">
-          <StyledMenuItem translate="no">
-            <GitHub /> &nbsp; Github{" "}
-            {stars && (
-              <Tooltip title={`${stars} stars on Github`}>
-                <MenuLabel clr="#ff9d00">
-                  <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <StarRounded style={{ fontSize: "18px" }} />
-                    &nbsp;{stars}
-                  </span>
-                </MenuLabel>
-              </Tooltip>
-            )}
-          </StyledMenuItem>
-        </MenuLink>
-
-        <MenuLink to="https://github.com/maciekt07/TodoApp/issues/new">
-          <StyledMenuItem>
-            <BugReportRounded /> &nbsp; Report Issue{" "}
-            {Boolean(issuesCount || issuesCount === 0) && (
-              <Tooltip title={`${issuesCount} open issues`}>
-                <MenuLabel clr="#3bb61c">
-                  <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <AdjustRounded style={{ fontSize: "18px" }} />
-                    &nbsp;
-                    {issuesCount}
-                  </span>
-                </MenuLabel>
-              </Tooltip>
-            )}
-          </StyledMenuItem>
-        </MenuLink>
-
-        <MenuLink to="https://www.buymeacoffee.com/maciekt07">
-          <StyledMenuItem className="bmcMenu">
-            <BmcIcon className="bmc-icon" src={theme.darkmode ? bmcLogoLight : bmcLogo} /> &nbsp;
-            Buy me a coffee{" "}
-            {bmcSupporters && (
-              <Tooltip title={`${bmcSupporters} supporters on Buy me a coffee`}>
-                <MenuLabel clr="#f93c58">
-                  <span style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
-                    <FavoriteRounded style={{ fontSize: "16px" }} />
-                    &nbsp;{bmcSupporters}
-                  </span>
-                </MenuLabel>
-              </Tooltip>
-            )}
-          </StyledMenuItem>
-        </MenuLink>
-
         <StyledDivider />
 
         {supportsPWA && !isAppInstalled && (
@@ -389,24 +332,12 @@ export const ProfileSidebar = () => {
             <span style={{ marginLeft: "6px", marginRight: "4px" }}>by</span>
             <a
               style={{ textDecoration: "none", color: "inherit" }}
-              href="https://github.com/maciekt07"
+              href="https://github.com/Bhushan1137"
             >
-              maciekt07
+              Bhushan
             </a>
           </CreditsContainer>
-          <CreditsContainer>
-            {lastUpdate && (
-              <Tooltip title={timeAgo(new Date(lastUpdate))}>
-                <span>
-                  Last update:{" "}
-                  {new Intl.DateTimeFormat(navigator.language, {
-                    dateStyle: "long",
-                    timeStyle: "medium",
-                  }).format(new Date(lastUpdate))}
-                </span>
-              </Tooltip>
-            )}
-          </CreditsContainer>
+          
         </ProfileOptionsBottom>
       </StyledSwipeableDrawer>
 
